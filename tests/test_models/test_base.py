@@ -15,9 +15,15 @@ class InstanceAttributeTestCase(unittest.TestCase):
         #  12345678-1234-5678-1234-567812345678
 
         a = BaseModel()
-
         self.assertIs(type(a.id), str)
-        self.assertRegex(a.id,'[\da-f]{8}-[\da-f]{4}-[\da-f]{4}-[\da-f]{4}-[\da-f]{8}')
+
+        regex_fmt = '[\da-f]{8}-[\da-f]{4}-[\da-f]{4}-[\da-f]{4}-[\da-f]{8}'
+        self.assertRegex(a.id, regex_fmt)
+
+        my_model_json = a.to_dict()
+        b = BaseModel(**my_model_json)
+        self.assertIs(type(b.id), str)
+        self.assertRegex(b.id, regex_fmt)
 
     def test_created_at_is_datetime_object(self):
         """created_at should be assigned with datetime object"""
@@ -28,11 +34,19 @@ class InstanceAttributeTestCase(unittest.TestCase):
         # test that timedelta between the datetime assigned to created_at and
         # datetime.now is not greater than 5 second
 
+        my_model_json = a.to_dict()
+        b = BaseModel(**my_model_json)
+        self.assertIs(type(b.created_at), datetime)
+
     def test_updated_at_is_datetime_object(self):
         """updated_at should be assigned with datetime object"""
 
         a = BaseModel()
         self.assertIs(type(a.updated_at), datetime)
+
+        my_model_json = a.to_dict()
+        b = BaseModel(**my_model_json)
+        self.assertIs(type(b.updated_at), datetime)
 
 
 class StrAttrTestCase(unittest.TestCase):
@@ -81,6 +95,7 @@ class TodictMethodTestCase(unittest.TestCase):
 
     # Test that the dictionary returned by to_dict() contains the key
     # __class__
+
     def test_todict_content(self):
         """to_dict should return a dict containing all key/values of __dict__
         """
@@ -117,11 +132,13 @@ class TodictMethodTestCase(unittest.TestCase):
 
         attr_dict = a.__dict__
         # convert values of updated_at and created_at to ISO format string
-        updated_at_str = attr_dict['updated_at'].strftime('%Y-%m-%dT%H:%M:%S.%f')
+        time_fmt = '%Y-%m-%dT%H:%M:%S.%f'
+        updated_at_str = attr_dict['updated_at'].strftime(time_fmt)
 
         to_dict = a.to_dict()
 
         self.assertEqual(updated_at_str, to_dict['updated_at'])
+
 
     def test_created_at_value_is_string_ISO_format(self):
         """value of key created_at should be string in ISO format"""
@@ -130,19 +147,17 @@ class TodictMethodTestCase(unittest.TestCase):
 
         attr_dict = a.__dict__
 
-        created_at_str = attr_dict['created_at'].strftime('%Y-%m-%dT%H:%M:%S.%f')
-
+        time_fmt = '%Y-%m-%dT%H:%M:%S.%f'
+        created_at_str = attr_dict['created_at'].strftime(time_fmt)
         to_dict = a.to_dict()
 
         self.assertEqual(created_at_str, to_dict['created_at'])
 
 
     # Test that the instance dict attr before to_dict is called is equal to the
-    # dict returned 
+    # dict returned
     # added to its attribute dict ==
     # the return value ofObject.to_dict()
-
-
 
 if __name__ == "__main__":
     unittest.main()
