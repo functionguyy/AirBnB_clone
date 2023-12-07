@@ -20,24 +20,24 @@ class BaseModel:
         id_ = self.id
         class_name = type(self).__name__
         attr_dict = self.__dict__
+
         return "[{:s}] ({:s}) {}".format(class_name, id_, attr_dict)
+
 
     def save(self):
         """update the public instance attribute updated_at with current
         datetime"""
         self.updated_at = datetime.now()
 
+
     def to_dict(self):
         """returns a dictionary containing all key/values of __dict__ of the
         instance"""
-
         instance_attr = self.__dict__
-
         instance_attr['__class__'] = type(self).__name__
 
         # keys with datetime object values
         change_keys = ['updated_at', 'created_at']
-
 
         # convert datetime object values to isoformat string
         for k in instance_attr.keys():
