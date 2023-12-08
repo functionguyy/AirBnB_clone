@@ -2,7 +2,7 @@
 """Module defines class Base"""
 import uuid
 from datetime import datetime, timezone
-from models import storage
+import models
 
 
 class BaseModel:
