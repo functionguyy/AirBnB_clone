@@ -3,19 +3,16 @@
 import json
 import models
 
+
 class FileStorage:
     """Defines the internals of a FileStorage object"""
-
-
     __file_path = "file.json"
     __objects = {}
-
 
     def all(self):
         """returns the dictionary __objects which stores all objects by <class
         name>.id"""
         return type(self).__objects
-
 
     def new(self, obj):
         """sets in __objects the obj with key <obj class name>.id"""
@@ -27,7 +24,6 @@ class FileStorage:
 
         type(self).__objects[storage_key] = obj
 
-
     def save(self):
         """serializes __objects to the JSON file __file_path"""
         objs = type(self).__objects
@@ -36,7 +32,6 @@ class FileStorage:
         filename = type(self).__file_path
         with open(filename, "w", encoding="utf-8") as f:
             json.dump(obj_dict, f)
-
 
     def reload(self):
         """deserializes the JSON file to __objects (only if JSON file
@@ -52,6 +47,6 @@ class FileStorage:
                     obj_cls = obj['__class__']
 
                     # each model name has been explicitly imported during
-                    # models package initialization see models/__init__.py 
+                    # models package initialization see models/__init__.py
                     cls_name = models.model_dict[obj_cls]
                     type(self).__objects[key] = cls_name(**obj)
