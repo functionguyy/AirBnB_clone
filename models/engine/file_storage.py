@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Module defines class FileStorage"""
 import json
-import models
+from models.base_model import BaseModel
 
 
 class FileStorage:
@@ -42,13 +42,9 @@ class FileStorage:
 
         try:
             with open(filep, "r", encoding="utf-8") as f:
-                obj_str_dict = json.load(f)
-                for key, obj in obj_str_dict.items():
+                models_dict = json.load(f)
+                for key, obj in models_dict.items():
                     obj_cls = obj['__class__']
-
-                    # each model name has been explicitly imported during
-                    # models package initialization see models/__init__.py
-                    cls_name = models.models_dict[obj_cls]
-                    type(self).__objects[key] = cls_name(**obj)
+                    type(self).__objects[key] = eval(obj_cls)(**obj)
         except FileNotFoundError:
             pass
