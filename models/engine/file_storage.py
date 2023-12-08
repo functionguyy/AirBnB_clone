@@ -50,3 +50,5 @@ class FileStorage:
                     # models package initialization see models/__init__.py
                     cls_name = models.model_dict[obj_cls]
                     type(self).__objects[key] = cls_name(**obj)
+        except FileNotFoundError:
+            pass
