@@ -2,6 +2,7 @@
 """Module defines class Base"""
 import uuid
 from datetime import datetime, timezone
+from models import storage
 
 
 class BaseModel:
@@ -36,6 +37,7 @@ class BaseModel:
         """update the public instance attribute updated_at with current
         datetime"""
         self.updated_at = datetime.now()
+        storage.save()
 
     def to_dict(self):
         """returns a dictionary containing all key/values of __dict__ of the
