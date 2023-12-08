@@ -24,6 +24,7 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = current_datetime
             self.updated_at = current_datetime
+            storage.new()
 
     def __str__(self):
         """print string representation of instance"""
