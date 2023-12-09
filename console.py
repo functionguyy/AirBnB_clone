@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module defines custom command line interpreter HBNB"""
 import cmd
+from models.base_model import BaseModel
 
 
 class HBNBCommand(cmd.Cmd):
@@ -8,13 +9,13 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = "(hbnb) "
 
-    def do_quit(self, line):
+    def do_quit(self, cmd_arg):
         return True
 
     def help_quit(self):
         print("Quit command to exit the program\n")
 
-    def do_EOF(self, line):
+    def do_EOF(self, cmd_arg):
         print()
         return True
 
@@ -24,6 +25,19 @@ class HBNBCommand(cmd.Cmd):
 
     def emptyline(self):
         pass
+
+    def do_create(self, cmd_arg):
+        """creates a new instance of BaseModel, saves it to JSON file and
+        prints the id
+        """
+        if cmd_arg == "BaseModel":
+            new_model = BaseModel()
+            new_model.save()
+            print("{:s}".format(new_model.id))
+        elif cmd_arg == "":
+            print("** class name missing **")
+        else:
+            print("** class doesn't exist **")
 
 
 if __name__ == '__main__':
