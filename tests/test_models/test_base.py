@@ -154,6 +154,17 @@ class TodictMethodTestCase(unittest.TestCase):
         self.assertEqual(created_at_str, to_dict['created_at'])
 
 
+    def test_to_dict_creates_new_dict_from_attr_dict_(self):
+        """to_dict should not modify instance attribute dict"""
+
+        a = BaseModel()
+
+        attr_dict = a.__dict__
+
+        attr_str_dict = a.to_dict()
+
+        self.assertNotEqual(attr_dict, attr_str_dict)
+
     # Test that the instance dict attr before to_dict is called is equal to the
     # dict returned
     # added to its attribute dict ==
