@@ -130,8 +130,6 @@ class HBNBCommand(cmd.Cmd):
         updating attribute and saves the change into storage
         """
         arg_list, arg_count = self.parse_cmd(cmd_arg)
-        objs_dict = models.storage.all()
-
         if arg_count == 0:
             print("** class name missing **")
         elif arg_count == 1:
@@ -140,24 +138,26 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("** instance id missing **")
         elif arg_count == 2:
-            if f"{arg_list[0]}.{arg_list[1]}" not in objs_dict.keys():
-                print("** no instance found **")
-            else:
-                print("** attribute name missing **")
+            print("** attribute name missing **")
         elif arg_count == 3:
             print("** value missing **")
         else:
+            objs_dict = models.storage.all()
             storage_key = f"{arg_list[0]}.{arg_list[1]}"
-            model_inst = objs_dict[storage_key]
-            attr_name = arg_list[2]
-            attr_value = arg_list[3].strip("\"'")
-            cur_attr_val = getattr(model_inst, attr_name, None)
-            if cur_attr_val:
-                # cast update value to attribute type
-                attr_type = type(cur_attr_val)
-                attr_value = attr_type(attr_value)
-            setattr(model_inst, attr_name, attr_value)
-            model_inst.save()
+            try:
+                model_inst = objs_dict[storage_key]
+                attr_name = arg_list[2]
+                attr_value = arg_list[3].strip("\"'")
+                cur_attr_val = getattr(model_inst, attr_name, None)
+                if cur_attr_val:
+                    # cast update value to attribute type
+                    attr_type = type(cur_attr_val)
+                    attr_value = attr_type(attr_value)
+                setattr(model_inst, attr_name, attr_value)
+                model_inst.save()
+                models.storage.save()
+            except KeyError:
+                print("** no instance found **")
 
 
 if __name__ == '__main__':
