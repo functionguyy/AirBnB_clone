@@ -101,64 +101,6 @@ class HBNBCommand(cmd.Cmd):
             except KeyError:
                 print("** no instance found **")
 
-    def do_all(self, cmd_arg):
-        """prints all string representation of all instances based or not on
-        the class name
-        """
-        arg_list, arg_count = self.parse_cmd(cmd_arg)
-
-        output_list = []
-        objs_dict = models.storage.all()
-        if arg_count == 0:
-            for key, value in objs_dict.items():
-                output_list.append(str(value))
-        elif arg_count > 0:
-            for key in objs_dict.keys():
-                cls_name, id_ = key.split('.')
-                if cls_name == arg_list[0]:
-                    value = str(objs_dict[key])
-                    output_list.append(value)
-
-        if len(output_list) > 0:
-            print(output_list)
-        else:
-            print("** class doesn't exist **")
-
-    def do_update(self, cmd_arg):
-        """updates an instance based on the class name and id by adding or
-        updating attribute
-        """
-        arg_list, arg_count = self.parse_cmd(cmd_arg)
-
-        match arg_count:
-            case 0:
-                print("** class name missing **")
-            case 1:
-                if arg_list[0] not in self.model_classes.keys():
-                    print("** class doesn't exist **")
-                else:
-                    print("** instance id missing **")
-            case 2:
-                print("** attribute name missing **")
-            case 3:
-                print("** value missing **")
-            case _:
-                storage_key = f"{arg_list[0]}.{arg_list[1]}"
-                objs_dict = models.storage.all()
-                try:
-                    model_inst = objs_dict[storage_key]
-                    inst_attr = model_inst.__dict__
-                    attr_key = arg_members[2]
-                    attr_value = arg_members[3].strip("\"'")
-
-                    if attr_key in inst_attr.keys():
-                        attr_type = type(inst_attr[attr_key])
-                        attr_value = attr_type(attr_value)
-                    setattr(model_inst, attr_key, attr_value)
-                    model_inst.save()
-                except KeyError:
-                    print("** no instance found **")
-
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
