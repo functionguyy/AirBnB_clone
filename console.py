@@ -19,7 +19,7 @@ class HBNBCommand(cmd.Cmd):
         create a new instance of BaseModel, saves it to JSON file and prints
         the id
         """
-        if cmd_arg in self.model_classes.keys(): 
+        if cmd_arg in self.model_classes.keys():
             model_cls = self.model_classes[cmd_arg]
             new_model = model_cls()
             print("{:s}".format(new_model.id))
@@ -28,7 +28,6 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         else:
             print("** class doesn't exist **")
-
 
     def do_quit(self, cmd_arg):
         return True
