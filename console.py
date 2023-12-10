@@ -77,20 +77,6 @@ class HBNBCommand(cmd.Cmd):
 
         return flag, objs_dict, storage_key
 
-    def do_show(self, cmd_arg):
-        """prints the string representation of an instance based on the class
-        name and id
-        """
-        flag, objs_dict, storage_key = self.check_arg(cmd_arg)
-
-        if flag:
-            try:
-                found = objs_dict[storage_key]
-                print(found)
-            except KeyError:
-                print("** no instance found **")
-
-
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
