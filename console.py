@@ -56,6 +56,27 @@ class HBNBCommand(cmd.Cmd):
             except KeyError:
                 print("** class doesn't exist **")
 
+    def do_show(self, cmd_arg):
+        """ print string representation"""
+
+        arg_list, arg_count = self.parse_cmd(cmd_arg)
+
+        if arg_count == 0:
+            print("** class name missing **")
+        elif arg_count == 1:
+            if arg_list[0] not in self.model_classes.keys():
+                print("** class doesn't exist **")
+            else:
+                print("** instance id missing **")
+        else:
+            try:
+                objs_dict = models.storage.all()
+                storage_key = f"{arg_list[0]}.{arg_list[1]}"
+                model_instance = objs_dict[storage_key]
+                print(model_instance)
+            except KeyError:
+                print("** no instance found **")
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
