@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """Module defines custom command line interpreter HBNB"""
+from models.base_model import BaseModel
+import models
 import cmd
 
 
