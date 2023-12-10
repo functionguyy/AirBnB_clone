@@ -45,11 +45,11 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("** instance id missing **")
         else:
-            storage_key = '.'join(arg_members)
+            storage_key = f"{arg_members[0]}.{arg_members[1]}"
             objs_dict = models.storage.all()
             try:
                 found = objs_dict[storage_key]
-                print(found)
+                print(str(found))
             except KeyError:
                 print("** no instance found **")
 
