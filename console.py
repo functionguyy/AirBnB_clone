@@ -90,16 +90,6 @@ class HBNBCommand(cmd.Cmd):
             except KeyError:
                 print("** no instance found **")
 
-    def do_destroy(self, cmd_arg):
-        """deletes an instance based on the class name and id"""
-        flag, objs_dict, storage_key = self.check_arg(cmd_arg)
-
-        if flag:
-            try:
-                del objs_dict[storage_key]
-                models.storage.save()
-            except KeyError:
-                print("** no instance found **")
 
 
 if __name__ == '__main__':
