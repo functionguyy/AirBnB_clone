@@ -34,8 +34,6 @@ class HBNBCommand(cmd.Cmd):
         prints the string representation of an instance based on the class
         name and id
         """
-        flag, objs_dict, storage_key = self.check_arg(cmd_arg)
-
         arg_members = cmd_arg.split()
         arg_count = len(arg_members)
 
