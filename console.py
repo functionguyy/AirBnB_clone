@@ -51,7 +51,7 @@ class HBNBCommand(cmd.Cmd):
             objs_dict = models.storage.all()
             try:
                 found = objs_dict[storage_key]
-                print("{}".format(found))
+                print(found)
             except KeyError:
                 print("** no instance found **")
 
