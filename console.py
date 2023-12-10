@@ -13,13 +13,13 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
     model_classes = MODEL_CLASSES
 
-    def do_quit(self, cmd_arg):
+    def do_quit(self, line):
         return True
 
     def help_quit(self):
         print("Quit command to exit the program\n")
 
-    def do_EOF(self, cmd_arg):
+    def do_EOF(self, line):
         print()
         return True
 
