@@ -29,30 +29,9 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class doesn't exist **")
 
-    def check_arg(self, cmd_arg):
-        """ parse command arguments"""
-
-        arg_members = cmd_arg.split()
-        arg_count = len(arg_members)
-        flag, objs_dict, storage_key = False, None, None
-
-        match arg_count:
-            case 0:
-                print("** class name missing **")
-            case 1:
-                if arg_members[0] not in self.model_classes.keys():
-                    print("** class doesn't exist **")
-                else:
-                    print("** instance id missing **")
-            case _:
-                storage_key = '.'.join(arg_members)
-                objs_dict = models.storage.all()
-                flag = True
-
-        return flag, objs_dict, storage_key
-
     def do_show(self, cmd_arg):
-        """prints the string representation of an instance based on the class
+        """
+        prints the string representation of an instance based on the class
         name and id
         """
         flag, objs_dict, storage_key = self.check_arg(cmd_arg)
