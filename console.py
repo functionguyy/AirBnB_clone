@@ -12,6 +12,7 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = "(hbnb) "
 
+    model_classes = MODEL_CLASSES
 
 
     def do_quit(self, cmd_arg):
