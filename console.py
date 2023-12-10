@@ -7,7 +7,6 @@ class HBNBCommand(cmd.Cmd):
     """define internals of a HBNBCommand instance"""
 
     prompt = "(hbnb) "
-    model_classes = MODEL_CLASSES
 
     def do_quit(self, line):
         return True
