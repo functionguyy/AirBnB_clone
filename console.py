@@ -39,22 +39,21 @@ class HBNBCommand(cmd.Cmd):
         arg_members = cmd_arg.split()
         arg_count = len(arg_members)
 
-        match arg_count:
-            case 0:
-                print("** class name missing **")
-            case 1:
-                if arg_members[0] not in self.model_classes.keys():
-                    print("** class doesn't exist **")
-                else:
-                    print("** instance id missing **")
-            case _:
-                storage_key = '.'join(arg_members)
-                objs_dict = models.storage.all()
-                try:
-                    found = objs_dict[storage_key]
-                    print("{}".format(found))
-                except KeyError:
-                    print("** no instance found **")
+        if arg_count == 0:
+            print("** class name missing **")
+        if arg_count == 1:
+            if arg_members[0] not in self.model_classes.keys():
+                print("** class doesn't exist **")
+            else:
+                print("** instance id missing **")
+        else:
+            storage_key = '.'join(arg_members)
+            objs_dict = models.storage.all()
+            try:
+                found = objs_dict[storage_key]
+                print("{}".format(found))
+            except KeyError:
+                print("** no instance found **")
 
     def do_quit(self, cmd_arg):
         return True
