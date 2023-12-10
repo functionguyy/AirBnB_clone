@@ -4,14 +4,12 @@ import cmd
 from models.base_model import BaseModel
 import models
 
-MODEL_CLASSES = {'BaseModel': BaseModel}
-
 
 class HBNBCommand(cmd.Cmd):
     """define internals of a HBNBCommand instance"""
 
     prompt = "(hbnb) "
-    model_classes = MODEL_CLASSES
+    model_classes = {'BaseModel': BaseModel}
 
     def do_quit(self, cmd_arg):
         return True
@@ -31,7 +29,8 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_create(self, cmd_arg):
-        """creates a new instance of BaseModel, saves it to JSON file and
+        """
+        creates a new instance of BaseModel, saves it to JSON file and
         prints the id
         """
         if cmd_arg == "BaseModel":
