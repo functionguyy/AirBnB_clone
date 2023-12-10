@@ -56,27 +56,6 @@ class HBNBCommand(cmd.Cmd):
             except KeyError:
                 print("** class doesn't exist **")
 
-    def check_arg(self, cmd_arg):
-        """ parse command arguments"""
-
-        arg_list, arg_count = self.parse_cmd(cmd_arg)
-        flag, objs_dict, storage_key = False, None, None
-
-        match arg_count:
-            case 0:
-                print("** class name missing **")
-            case 1:
-                if arg_list[0] not in self.model_classes.keys():
-                    print("** class doesn't exist **")
-                else:
-                    print("** instance id missing **")
-            case _:
-                storage_key = f"{arg_list[0]}.{arg_list[1]}"
-                objs_dict = models.storage.all()
-                flag = True
-
-        return flag, objs_dict, storage_key
-
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
