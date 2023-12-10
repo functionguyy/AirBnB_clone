@@ -121,7 +121,8 @@ class HBNBCommand(cmd.Cmd):
                     if cls_name == arg_list[0]:
                         output_list.append(str(value))
 
-        print(output_list)
+        if len(output_list) > 0:
+            print(output_list)
 
     def do_update(self, cmd_arg):
         """
