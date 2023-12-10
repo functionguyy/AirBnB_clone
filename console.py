@@ -51,7 +51,7 @@ class HBNBCommand(cmd.Cmd):
             try:
                 model_cls = self.model_classes[arg_list[0]]
                 new_model = model_cls()
-                print("{:s}".format(new_model.id))
+                print(new_model.id)
                 models.storage.save()
             except KeyError:
                 print("** class doesn't exist **")
