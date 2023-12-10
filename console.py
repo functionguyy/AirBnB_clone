@@ -156,6 +156,7 @@ class HBNBCommand(cmd.Cmd):
                     attr_value = attr_type(attr_value)
                 setattr(model_inst, attr_name, attr_value)
                 model_inst.save()
+                models.storage.save()
             except KeyError:
                 print("** no instance found **")
 
