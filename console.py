@@ -85,11 +85,10 @@ class HBNBCommand(cmd.Cmd):
 
         if arg_count == 0:
             print("** class name missing **")
-        elif arg_count == 1:
-            if arg_list[0] not in self.model_classes.keys():
+        elif arg_list[0] not in self.model_classes.keys():
                 print("** class doesn't exist **")
-            else:
-                print("** instance id missing **")
+        elif arg_count == 0:
+            print("** instance id missing **")
         else:
             try:
                 objs_dict = models.storage.all()
@@ -155,7 +154,6 @@ class HBNBCommand(cmd.Cmd):
                     attr_value = attr_type(attr_value)
                 setattr(model_inst, attr_name, attr_value)
                 model_inst.save()
-                models.storage.save()
             except KeyError:
                 print("** no instance found **")
 
