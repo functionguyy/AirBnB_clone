@@ -131,10 +131,9 @@ class HBNBCommand(cmd.Cmd):
         arg_list, arg_count = self.parse_cmd(cmd_arg)
         if arg_count == 0:
             print("** class name missing **")
-        elif arg_count == 1:
-            if arg_list[0] not in self.model_classes.keys():
+        elif arg_list[0] not in self.model_classes.keys():
                 print("** class doesn't exist **")
-            else:
+        elif arg_count == 1:
                 print("** instance id missing **")
         elif arg_count == 2:
             print("** attribute name missing **")
