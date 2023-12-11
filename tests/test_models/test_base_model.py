@@ -76,8 +76,6 @@ class SaveMethodTestCase(unittest.TestCase):
         """save should update the public instance attribute updated_at"""
         a = BaseModel()
         time_before_save = a.updated_at
-        a.name = "John"
-        a.my_number = 89
         a.save()
         time_after_save = a.updated_at
 
@@ -158,12 +156,13 @@ class TodictMethodTestCase(unittest.TestCase):
         """to_dict should not modify instance attribute dict"""
 
         a = BaseModel()
+        attr_dict = {
+                'id': a.id,
+                'created_at': a.create_at.isoformat(),
+                'updated_at': a.updated_at.isoformat(),
+                '__class__': 'BaseModel'
 
-        attr_dict = a.__dict__
-
-        attr_str_dict = a.to_dict()
-
-        self.assertNotEqual(attr_dict, attr_str_dict)
+        self.assertEqual(a.to_dict(), attr_dict)
 
     # Test that the instance dict attr before to_dict is called is equal to the
     # dict returned
