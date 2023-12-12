@@ -64,7 +64,7 @@ class HBNBCommand(cmd.Cmd):
         if arg_count == 0:
             print("** class name missing **")
         elif arg_list[0] not in FileStorage.model_classes.keys():
-                print("** class doesn't exist **")
+            print("** class doesn't exist **")
         elif arg_count == 1:
             print("** instance id missing **")
         else:
@@ -85,7 +85,7 @@ class HBNBCommand(cmd.Cmd):
         if arg_count == 0:
             print("** class name missing **")
         elif arg_list[0] not in FileStorage.model_classes.keys():
-                print("** class doesn't exist **")
+            print("** class doesn't exist **")
         elif arg_count == 1:
             print("** instance id missing **")
         else:
@@ -131,9 +131,9 @@ class HBNBCommand(cmd.Cmd):
         if arg_count == 0:
             print("** class name missing **")
         elif arg_list[0] not in FileStorage.model_classes.keys():
-                print("** class doesn't exist **")
+            print("** class doesn't exist **")
         elif arg_count == 1:
-                print("** instance id missing **")
+            print("** instance id missing **")
         elif arg_count == 2:
             print("** attribute name missing **")
         elif arg_count == 3:
