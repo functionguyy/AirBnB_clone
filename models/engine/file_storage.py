@@ -3,11 +3,13 @@
 import json
 from models.base_model import BaseModel
 
+MODEL_CLASSES = {'BaseModel': BaseModel}
 
 class FileStorage:
     """Defines the internals of a FileStorage object"""
     __file_path = "file.json"
     __objects = {}
+    model_classes = MODEL_CLASSES
 
     def all(self):
         """returns the dictionary __objects which stores all objects by <class
@@ -45,6 +47,7 @@ class FileStorage:
                 models_dict = json.load(f)
                 for key, obj in models_dict.items():
                     obj_cls = obj['__class__']
-                    type(self).__objects[key] = BaseModel(**obj)
+                    cls_name = type(self).model_classes[obj_cls]
+                    type(self).__objects[key] = cls_name(**obj)
         except FileNotFoundError:
             pass

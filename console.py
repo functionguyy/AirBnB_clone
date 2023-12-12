@@ -1,17 +1,17 @@
 #!/usr/bin/python3
 """Module defines custom command line interpreter HBNB"""
 import cmd
-from models.base_model import BaseModel
+from models.engine.file_storage import FileStorage
 import models
 
-MODEL_CLASSES = {'BaseModel': BaseModel}
+# MODEL_CLASSES = {'BaseModel': BaseModel}
 
 
 class HBNBCommand(cmd.Cmd):
     """define internals of a HBNBCommand instance"""
 
     prompt = "(hbnb) "
-    model_classes = MODEL_CLASSES
+    # model_classes = MODEL_CLASSES
 
     def do_quit(self, cmd_arg):
         return True
@@ -49,7 +49,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif arg_count > 0:
             try:
-                model_cls = self.model_classes[arg_list[0]]
+                model_cls = FileStorage.model_classes[arg_list[0]]
                 new_model = model_cls()
                 print(new_model.id)
                 models.storage.save()
@@ -63,7 +63,7 @@ class HBNBCommand(cmd.Cmd):
 
         if arg_count == 0:
             print("** class name missing **")
-        elif arg_list[0] not in self.model_classes.keys():
+        elif arg_list[0] not in FileStorage.model_classes.keys():
                 print("** class doesn't exist **")
         elif arg_count == 1:
             print("** instance id missing **")
@@ -84,7 +84,7 @@ class HBNBCommand(cmd.Cmd):
 
         if arg_count == 0:
             print("** class name missing **")
-        elif arg_list[0] not in self.model_classes.keys():
+        elif arg_list[0] not in FileStorage.model_classes.keys():
                 print("** class doesn't exist **")
         elif arg_count == 1:
             print("** instance id missing **")
@@ -111,7 +111,7 @@ class HBNBCommand(cmd.Cmd):
             for key, value in objs_dict.items():
                 output_list.append(str(value))
         else:
-            if arg_list[0] not in self.model_classes.keys():
+            if arg_list[0] not in FileStorage.model_classes.keys():
                 print("** class doesn't exist **")
             else:
                 for key, value in objs_dict.items():
@@ -130,7 +130,7 @@ class HBNBCommand(cmd.Cmd):
         arg_list, arg_count = self.parse_cmd(cmd_arg)
         if arg_count == 0:
             print("** class name missing **")
-        elif arg_list[0] not in self.model_classes.keys():
+        elif arg_list[0] not in FileStorage.model_classes.keys():
                 print("** class doesn't exist **")
         elif arg_count == 1:
                 print("** instance id missing **")
