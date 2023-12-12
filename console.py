@@ -4,8 +4,6 @@ import cmd
 from models.engine.file_storage import FileStorage
 import models
 
-# MODEL_CLASSES = {'BaseModel': BaseModel}
-
 
 class HBNBCommand(cmd.Cmd):
     """define internals of a HBNBCommand instance"""

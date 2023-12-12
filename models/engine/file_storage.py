@@ -2,8 +2,9 @@
 """Module defines class FileStorage"""
 import json
 from models.base_model import BaseModel
+from models.user import User
 
-MODEL_CLASSES = {'BaseModel': BaseModel}
+MODEL_CLASSES = {'BaseModel': BaseModel, 'User': User}
 
 
 class FileStorage:
