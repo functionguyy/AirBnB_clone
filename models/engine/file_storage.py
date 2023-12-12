@@ -5,6 +5,7 @@ from models.base_model import BaseModel
 
 MODEL_CLASSES = {'BaseModel': BaseModel}
 
+
 class FileStorage:
     """Defines the internals of a FileStorage object"""
     __file_path = "file.json"
