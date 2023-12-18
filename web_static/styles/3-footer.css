@@ -9,4 +9,5 @@ footer {
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
 	padding: 20px 0px;
+	border-top-style: solid;
 }
