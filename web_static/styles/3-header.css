@@ -1,5 +1,11 @@
 header {
-	background: #f00;
+	background-color: #fff;
 	height: 70px;
 	width: 100%;
+	background-image: url("../images/logo.png");
+	background-repeat: no-repeat; /* prevent the background image for repeating */
+	background-position: 20px; /* align bg-img on left and center vertically */
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #ccc;
 }
