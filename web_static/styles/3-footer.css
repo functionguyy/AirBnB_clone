@@ -10,4 +10,6 @@ footer {
 	-ms-box-sizing: border-box;
 	padding: 20px 0px;
 	border-top-style: solid;
+	border-top-width: 1px;
+	border-top-color: #ccc;
 }
