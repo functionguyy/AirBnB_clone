@@ -1,7 +1,7 @@
 .container section.filters {
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
+	/*display: flex;*/
+	/*justify-content: flex-end;*/
+	/*align-items: center;*/
 	background-color: #fff;
 	height: 70px;
 	width: 100%;
@@ -12,6 +12,7 @@
 }
 
 section.filters button {
+	float: right;
 	font-size: 18px;
 	background-color: #ff5a5f;
 	color: #fff;
@@ -21,6 +22,8 @@ section.filters button {
 	border-radius: 4px;
 	box-sizing: border-box;
 	margin-right: 30px;
+	margin-top: 11px;
+	margin-bottom: 11px
 }
 
 button:hover {
