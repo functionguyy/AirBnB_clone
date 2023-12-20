@@ -69,20 +69,32 @@ section div.amenities {
 
 
 div ul.popover {
-	/*display: none;*/
+	display: none;
 	background-color: #fafafa;
 	width: 100%;
 	list-style-type: none;
 	box-sizing: border-box;
-	padding-left: 30px;
+	padding-left: 15px;
 	margin: 0;
 	margin-top: 25px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-style: solid;
+	border-color: #ddd;
+	border-width: 1px;
+	border-radius: 4px;
 }
 
 div ul.popover ul {
 	list-style-type: none;
+	padding-left: 15px;
 }
 
 div ul.popover h2 {
 	font-size: 16px;
+}
+
+.locations:hover .popover,
+.amenities:hover .popover {
+	display: block;
 }
