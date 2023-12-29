@@ -55,7 +55,13 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
 
     def do_show(self, cmd_arg):
-        """ print string representation"""
+        """
+        Prints the string representation of an instance based on the class name
+        and id.
+
+        example: $ show BaseModel 121212
+
+        """
 
         arg_list, arg_count = self.parse_cmd(cmd_arg)
 
@@ -76,7 +82,10 @@ class HBNBCommand(cmd.Cmd):
 
     def do_destroy(self, cmd_arg):
         """
-        Deletes an instance based on the class name and id
+        Deletes an instance based on the class name and id (saves the change
+        into the JSON file)
+
+        example: $ destroy BaseModel 1234-1234-1234
         """
         arg_list, arg_count = self.parse_cmd(cmd_arg)
 
