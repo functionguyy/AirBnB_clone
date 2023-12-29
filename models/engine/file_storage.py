@@ -14,7 +14,8 @@ MODEL_CLASSES = {'BaseModel': BaseModel,
                  'Place': Place,
                  'City': City,
                  'Amenity': Amenity,
-                 'Review': Review}
+                 'Review': Review,
+                 'State': State}
 
 
 class FileStorage:
