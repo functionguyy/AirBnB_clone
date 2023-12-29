@@ -94,6 +94,10 @@ div ul.popover h2 {
 	font-size: 16px;
 }
 
+.amenities .popover {
+	padding-left: 30px;
+}
+
 .locations:hover .popover,
 .amenities:hover .popover {
 	display: block;
