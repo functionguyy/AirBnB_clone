@@ -3,6 +3,7 @@
 import cmd
 from models.engine.file_storage import FileStorage
 import models
+import re
 
 
 class HBNBCommand(cmd.Cmd):
@@ -34,6 +35,21 @@ class HBNBCommand(cmd.Cmd):
         arg_count = len(arg_list)
 
         return arg_list, arg_count
+
+    def precmd(self, line):
+        """Hook method executed just before the command line is interpreted,
+        but after the input prompt is generated and issued."""
+
+        # Add regex to check if line matches string.string() and then split
+        # on the period else return line just as is
+        m = re.match(r"([A-Z][a-z]+\.[a-z]+)[(][)]", line)
+
+        if m:
+            line_str = m.group(1)
+            str_members = line_str.split(".")
+            line = str_members[1] + " " + str_members[0]
+
+        return line
 
     def do_create(self, cmd_arg):
         """
