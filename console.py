@@ -145,6 +145,25 @@ class HBNBCommand(cmd.Cmd):
         if len(output_list) > 0:
             print(output_list)
 
+    def do_count(self, cmd_arg):
+        """
+        retrieve the number of instances of a class
+        """
+        arg_list, arg_count = self.parse_cmd(cmd_arg)
+        objs_dict = models.storage.all()
+        count = 0
+
+        if arg_list[0] not in FileStorage.model_classes.keys():
+            print("** class doesn't exist **")
+        else:
+            for key, value in objs_dict.items():
+                cls_name, id_ = key.split('.')
+                if cls_name == arg_list[0]:
+                    count += 1
+        
+        print(count)
+
+
     def do_update(self, cmd_arg):
         """
         updates an instance based on the class name and id by adding or
