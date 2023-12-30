@@ -42,7 +42,7 @@ class HBNBCommand(cmd.Cmd):
 
         # Add regex to check if line matches string.string() and then split
         # on the period else return line just as is
-        m = re.match(r"([A-Z][a-z]+\.[a-z]+)[(][)]", line)
+        m = re.match(r"([A-Za-z]+\.[a-z]+)[(][)]", line)
 
         if m:
             line_str = m.group(1)
