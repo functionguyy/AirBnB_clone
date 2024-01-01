@@ -42,12 +42,16 @@ class HBNBCommand(cmd.Cmd):
 
         # Add regex to check if line matches string.string() and then split
         # on the period else return line just as is
-        m = re.match(r"([A-Za-z]+\.[a-z]+)[(][)]", line)
+        m = re.match(r'([A-Za-z]+\.[a-z]+)[(](.*)[)]', line)
 
         if m:
             line_str = m.group(1)
-            str_members = line_str.split(".")
-            line = str_members[1] + " " + str_members[0]
+            arg = m.group(2)
+            model_cls, cmd = line_str.split(".")
+            line = cmd + " " + model_cls
+            if len(arg) != 0:
+                arg = arg.strip('"')
+                line = line + " " + arg
 
         return line
 
