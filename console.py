@@ -50,7 +50,17 @@ class HBNBCommand(cmd.Cmd):
             model_cls, cmd = line_str.split(".")
             line = cmd + " " + model_cls
             if len(arg) != 0:
-                arg = arg.strip('"')
+                arg_list = re.split('\s+', arg)
+                if len(arg_list) == 1:
+                    arg = arg_list[0].strip('"\'')
+                else:
+                    new_list = []
+                    for item in arg_list:
+                        print(new_list)
+                        new_ = item.strip('"\',')
+                        new_list.append(new_)
+                    arg = ' '.join(new_list)
+                    print(arg)
                 line = line + " " + arg
 
         return line
