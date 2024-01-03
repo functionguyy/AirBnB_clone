@@ -56,11 +56,9 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     new_list = []
                     for item in arg_list:
-                        print(new_list)
                         new_ = item.strip('"\',')
                         new_list.append(new_)
                     arg = ' '.join(new_list)
-                    print(arg)
                 line = line + " " + arg
 
         return line
