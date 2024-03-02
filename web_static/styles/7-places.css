@@ -1,34 +1,27 @@
-section.places {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+.places {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .places h1 {
-	grid-column: 1 / 4;
-	grid-row: 1;
-	font-size: 30px;
-}
-
-.places .articles {
-	grid-column: 1 / 4;
-	grid-row: 2;
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
+    font-size: 30px;
+    width: 100%;
+    /*margin-bottom: 0px;*/
+    padding-left: 30px;
 }
 
 .places article {
-	width: 390px;
-	padding: 20px;
-	margin: 20px;
-	/*box-sizing: border-box;*/
-	border-style: solid;
-	border-width: 1px;
-	border-color: #FF5A5F;
-	border-radius: 4px;
+    width: 390px;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #FF5A5F;
+    border-radius: 4px;
+    /*text-align: center;*/
 }
 
-.articles h2 {
-	font-size: 30px;
-	text-align: center;
+.places article h2 {
+    font-size: 30px;
+    margin: 0px;
+    text-align: center;
 }
