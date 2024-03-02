@@ -28,7 +28,7 @@
 .places article h2 {
     font-size: 30px;
     margin: 0px;
-    margin-bottom: 45px;
+    /*margin-bottom: 45px;*/
     text-align: center;
 }
 
@@ -54,14 +54,38 @@
 	border-bottom-style: solid;
 	border-bottom-width: 1px;
 	border-bottom-color: #DDD;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	margin-top: 45px;
+	width: 100%;
 }
 
-.user {
-
-}
-
-.max_guest {
-	background-image: url("../images/icon_group.png");
-	width: 100px;
+.icon_img {	
 	background-repeat: no-repeat;
+	background-position: center;
+	height: 60%;
+	width: 100%;
+	margin-top: 10px;
+}
+
+.max_guest .icon_img {
+	background-image: url("../images/icon_group.png");
+}
+.max_guest, .number_rooms, .number_bathrooms {
+	width: 100px;
+	height: 100%;
+}
+
+.max_guest p, .number_rooms p, .number_bathrooms p {
+	margin: 0;
+	text-align: center;
+} 
+
+.number_rooms .icon_img {
+	background-image: url("../images/icon_bed.png");
+}
+
+.number_bathrooms .icon_img {
+	background-image: url("../images/icon_bath.png");
 }
