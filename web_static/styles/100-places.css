@@ -108,9 +108,14 @@ article div.amenities h2 {
 	border-bottom-style: solid;
 	border-bottom-color: #DDD;
 	border-bottom-width: 1px;
+	padding-bottom: 10px;
 }
 
 article div ul {
 	list-style-type: none;
 	padding-left: 0;
+}
+
+article div ul li {
+	display: flex;
 }
