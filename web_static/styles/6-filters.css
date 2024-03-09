@@ -29,8 +29,8 @@ button:hover {
 	opacity: 0.9;
 }
 
-.locations, 
-.amenities {
+section.filters .locations, 
+section.filters .amenities {
 	float: left;
 	height: 100%;
 	width: 25%;
@@ -46,13 +46,6 @@ section div.locations {
 	/*margin-left: 30px;*/
 	border-right: 1px solid #ddd;
 }
-
-section div.amenities {
-	/*margin-left: 30px;*/
-	/*margin-right: auto;*/
-	/*border-right: none;*/
-}
-
 
 .locations h3, .amenities h3 {
 	font-weight: 600;
