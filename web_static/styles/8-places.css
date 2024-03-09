@@ -20,7 +20,7 @@
     border-color: #FF5A5F;
     border-radius: 4px;
     /*text-align: center;*/
-    position: relative;
+    position: relative; /* create relative positioning context for article elements */ 
     display: flex;
     flex-direction: column;
 }
@@ -65,7 +65,7 @@
 .icon_img {	
 	background-repeat: no-repeat;
 	background-position: center;
-	height: 55%;
+	height: 55%; /* occupy 55% of parent tag */
 	margin-top: 10px;
 }
 
