@@ -109,3 +109,7 @@ article div.amenities h2 {
 	border-bottom-color: #DDD;
 	border-bottom-width: 1px;
 }
+
+article div ul {
+	list-style-type: none;
+}
