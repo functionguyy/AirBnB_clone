@@ -1,0 +1,111 @@
+.places {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.places h1 {
+    font-size: 30px;
+    width: 100%;
+    margin-bottom: 0px;
+    padding-left: 15px;
+}
+
+.places article {
+    width: 390px;
+    padding: 20px;
+    margin: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #FF5A5F;
+    border-radius: 4px;
+    /*text-align: center;*/
+    position: relative; /* create relative positioning context for article elements */ 
+    display: flex;
+    flex-direction: column;
+}
+
+.places article h2 {
+    font-size: 30px;
+    margin: 0px;
+    /*margin-bottom: 45px;*/
+    text-align: center;
+}
+
+.price_by_night {
+    color: #FF5A5F;
+    border: 4px solid #FF5A5F;
+    border-radius: 100%;
+    min-width: 60px;
+    height: 60px;
+    font-size: 30px;
+    padding: 10px;
+    position: absolute;
+    right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.information {
+	height: 80px;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-top-color: #DDD;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #DDD;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	margin-top: 65px;
+	width: 100%;
+}
+
+.icon_img {	
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 55%; /* occupy 55% of parent tag */
+	margin-top: 10px;
+}
+
+.max_guest .icon_img {
+	background-image: url("../images/icon_group.png");
+}
+.max_guest, .number_rooms, .number_bathrooms {
+	width: 100px;
+	height: 100%;
+}
+
+.max_guest p, 
+.number_rooms p, 
+.number_bathrooms p {
+	margin: 0;
+	margin-bottom: 10px;
+	text-align: center;
+} 
+
+.number_rooms .icon_img {
+	background-image: url("../images/icon_bed.png");
+}
+
+.number_bathrooms .icon_img {
+	background-image: url("../images/icon_bath.png");
+}
+
+.description p {
+	margin: 0;
+	/*line-height: 1em;*/
+}
+
+article div.amenities {
+	margin-top: 40px;
+}
+
+article div.amenities h2 {
+	font-size: 16px;
+	text-align: left;
+	border-bottom-style: solid;
+	border-bottom-color: #DDD;
+	border-bottom-width: 1px;
+}
