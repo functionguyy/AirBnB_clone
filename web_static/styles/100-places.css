@@ -112,4 +112,5 @@ article div.amenities h2 {
 
 article div ul {
 	list-style-type: none;
+	padding-left: 0;
 }
